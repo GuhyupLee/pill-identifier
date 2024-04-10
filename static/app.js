@@ -21,7 +21,7 @@ $(document).ready(function() {
         formData.append('image', file);
 
         $.ajax({
-            url: '/identify',
+            url: 'https://mu0ivb40lh.execute-api.us-east-2.amazonaws.com/pill-identifier',
             type: 'POST',
             data: formData,
             processData: false,
