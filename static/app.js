@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const imageUpload = document.getElementById('image-upload');
     const identifyBtn = document.getElementById('identify-btn');
     const resultDiv = document.getElementById('result');
+    const loadingDiv = document.getElementById('loading');
 
     imageUpload.addEventListener('change', function() {
         const file = this.files[0];
@@ -25,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        loadingDiv.classList.remove('hidden'); // 로딩 메시지 표시
+
         const formData = new FormData();
         formData.append('image', file);
 
@@ -41,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             console.error('알약 식별 중 에러 발생:', error);
             resultDiv.innerHTML = '<p>알약 식별 중 오류가 발생했습니다.</p>';
+        } finally {
+            loadingDiv.classList.add('hidden'); // 로딩 메시지 숨김
         }
     });
 
