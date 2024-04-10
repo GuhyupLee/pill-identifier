@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    identifyBtn.addEventListener('click', async function() {
+    identifyBtn.addEventListener('click', function() {
         const file = imageUpload.files[0];
         if (!file) {
             alert('먼저 이미지를 업로드해주세요.');
@@ -28,25 +28,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
         loadingDiv.classList.remove('hidden'); // 로딩 메시지 표시
 
-        const formData = new FormData();
-        formData.append('image', file);
+        const url = 'https://mu0ivb40lh.execute-api.us-east-2.amazonaws.com/pill-identifier/identify';
+        const headers = { 'Content-Type': file.type };
+        const blob = new Blob([file], { type: file.type });
 
-        try {
-            const response = await fetch('https://mu0ivb40lh.execute-api.us-east-2.amazonaws.com/pill-identifier/identify', {
-                method: 'POST',
-                body: formData,
-            });
-
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: blob
+        })
+        .then(response => {
             if (!response.ok) throw new Error('서버에서 응답을 받지 못했습니다.');
-
-            const data = await response.json();
+            return response.json();
+        })
+        .then(data => {
             displayResults(data);
-        } catch (error) {
+        })
+        .catch(error => {
             console.error('알약 식별 중 에러 발생:', error);
             resultDiv.innerHTML = '<p>알약 식별 중 오류가 발생했습니다.</p>';
-        } finally {
+        })
+        .finally(() => {
             loadingDiv.classList.add('hidden'); // 로딩 메시지 숨김
-        }
+        });
     });
 
     function displayResults(data) {
