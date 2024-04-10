@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <base href="/pill-identifier/docs/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>알약 식별</title>
@@ -11,17 +12,17 @@
         <div class="max-w-md mx-auto mt-10">
             <div class="bg-white shadow-md rounded-lg p-4">
                 <div class="mb-4">
-   		 <label class="block text-gray-700 text-sm font-bold mb-2" for="image-upload">
-  		      약품의 사진을 찍거나 저장소에서 선택해주세요!
- 		   </label>
-   		 <input type="file" id="image-upload" class="custom-file-input block w-full text-sm text-gray-500
-  		  file:mr-4 file:py-2 file:px-4
-  		  file:rounded-full file:border-0
-  		  file:text-sm file:font-semibold
- 		   file:bg-violet-50 file:text-violet-700
-  		  hover:file:bg-violet-100"
- 		   accept="image/*">
-		</div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="image-upload">
+                        약품의 사진을 찍거나 저장소에서 선택해주세요!
+                    </label>
+                    <input type="file" id="image-upload" class="custom-file-input block w-full text-sm text-gray-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-violet-50 file:text-violet-700
+                    hover:file:bg-violet-100"
+                    accept="image/*">
+                </div>
                 <button id="identify-btn" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     알약 식별
                 </button>
@@ -46,6 +47,6 @@
             </div>
         </div>
     </div>
-     <script src="/static/app.js"></script>
+     <script src="../static/app.js"></script>
 </body>
 </html>
