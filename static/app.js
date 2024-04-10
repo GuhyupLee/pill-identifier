@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('image', file);
 
         try {
-            const response = await fetch('https://mu0ivb40lh.execute-api.us-east-2.amazonaws.com/pill-identifier', {
+            const response = await fetch('https://mu0ivb40lh.execute-api.us-east-2.amazonaws.com/pill-identifier/identify', {
                 method: 'POST',
                 body: formData,
             });
