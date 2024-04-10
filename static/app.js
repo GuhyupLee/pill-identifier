@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         loadingDiv.classList.remove('hidden'); // 로딩 메시지 표시
 
-        const url = 'https://mu0ivb40lh.execute-api.us-east-2.amazonaws.com/pill-identifier/identify';
+        const url = 'https://5pndjo25p8.execute-api.us-east-2.amazonaws.com/prod/resource';
         const headers = { 'Content-Type': file.type };
         const blob = new Blob([file], { type: file.type });
 
