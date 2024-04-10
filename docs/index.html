@@ -1,20 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>알약 식별</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>알약 식별</h1>
-        <div id="image-preview"></div>
-        <input type="file" id="image-upload" accept="image/*" capture>
-        <button id="identify-btn" class="btn btn-primary">약품 확인</button>
-        <div id="result"></div>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-md mx-auto mt-10">
+            <div class="bg-white shadow-md rounded-lg p-4">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="image-upload">
+                        약품 상세 설명
+                    </label>
+                    <input type="file" id="image-upload" class="custom-file-input block w-full text-sm text-gray-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-violet-50 file:text-violet-700
+                    hover:file:bg-violet-100"
+                    accept="image/*" capture>
+                </div>
+                <button id="identify-btn" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    알약 식별
+                </button>
+            </div>
+            <div id="result" class="bg-white shadow-md rounded-lg p-4 mt-5">
+                <div class="result-item mb-2 p-2">
+                    <span class="result-label font-bold">약품 확인:</span>
+                    <span id="pill-name" class="ml-2"></span>
+                </div>
+                <div class="result-item mb-2 p-2">
+                    <span class="result-label font-bold">효능 효과:</span>
+                    <span id="efficacy" class="ml-2"></span>
+                </div>
+                <div class="result-item mb-2 p-2">
+                    <span class="result-label font-bold">용법 용량:</span>
+                    <span id="dosage" class="ml-2"></span>
+                </div>
+                <div class="result-item mb-2 p-2">
+                    <span class="result-label font-bold">주의 사항:</span>
+                    <span id="precautions" class="ml-2"></span>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="{{ url_for('static', filename='app.js') }}"></script>
+     <script src="/static/app.js"></script>
 </body>
 </html>
