@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         fetch(url, {
             method: 'POST',
-            body: formData
+            body: formData,
+            mode: 'cors'
         })
         .then(response => {
             if (!response.ok) throw new Error('서버에서 응답을 받지 못했습니다.');
