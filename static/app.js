@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         loadingDiv.classList.remove('hidden'); // 로딩 메시지 표시
 
-        const url = 'https://asia-northeast1-projectname10111.cloudfunctions.net/pill-identifier-2';
+        const url = 'http://139.84.134.82:22/identify';
         const formData = new FormData();
         formData.append('image', file);
 
