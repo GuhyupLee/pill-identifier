@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         loadingDiv.classList.remove('hidden'); // 로딩 메시지 표시
 
-        const url = 'http://139.84.134.82:22/identify';
+        const url = 'http://139.84.134.82:8080/identify';
         const formData = new FormData();
         formData.append('image', file);
 
