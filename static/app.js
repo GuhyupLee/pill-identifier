@@ -28,15 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         loadingDiv.classList.remove('hidden'); // 로딩 메시지 표시
 
-        const url = 'https://4psrl2ws9d.execute-api.ap-northeast-2.amazonaws.com/stage/pill';
-        const headers = { 'Content-Type': file.type };
-        const blob = new Blob([file], { type: file.type });
+        const url = 'https://asia-northeast1-projectname10111.cloudfunctions.net/pill-identifier';
+        const formData = new FormData();
+        formData.append('image', file);
 
         fetch(url, {
             method: 'POST',
-            headers: headers,
-            body: blob,
-            mode: 'cors'
+            body: formData
         })
         .then(response => {
             if (!response.ok) throw new Error('서버에서 응답을 받지 못했습니다.');
