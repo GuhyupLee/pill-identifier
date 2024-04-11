@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     const imageUpload = document.getElementById('image-upload');
+    const previewImage = document.getElementById('preview-image');
+    const imageUploadLabel = document.querySelector('label[for="image-upload"]');
     const identifyBtn = document.getElementById('identify-btn');
     const resultDiv = document.getElementById('result');
     const loadingDiv = document.getElementById('loading');
 
-    imageUpload.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imagePreview = document.createElement('img');
-                imagePreview.src = e.target.result;
-                imagePreview.alt = 'Uploaded Image';
-                imagePreview.width = 250;
-                resultDiv.before(imagePreview);
-            };
-            reader.readAsDataURL(file);
+    imageUpload.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            previewImage.src = e.target.result;
+            previewImage.style.display = 'block';
+            imageUploadLabel.style.display = 'none';
         }
+
+        reader.readAsDataURL(file);
     });
 
     identifyBtn.addEventListener('click', function() {
