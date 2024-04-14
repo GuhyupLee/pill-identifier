@@ -12,11 +12,23 @@
         <div class="max-w-md mx-auto mt-10">
             <div class="bg-white shadow-md rounded-lg p-4">
                 <div class="mb-4">
-                    <img id="preview-image" src="name.png" alt="약품 사진" class="mb-2 mx-auto">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="image-upload">
-                        약품의 사진을 찍거나 저장소에서 선택해주세요!
+                    <img id="preview-front-image" src="name.png" alt="약품 앞면 사진" class="mb-2 mx-auto">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="front-image-upload">
+                        약품 앞면 사진을 찍거나 저장소에서 선택해주세요!
                     </label>
-                    <input type="file" id="image-upload" class="custom-file-input block w-full text-sm text-gray-500
+                    <input type="file" id="front-image-upload" class="custom-file-input block w-full text-sm text-gray-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-violet-50 file:text-violet-700
+                    hover:file:bg-violet-100"
+                    accept="image/*">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="back-image-upload">
+                        약품 뒷면 사진을 찍거나 저장소에서 선택해주세요!
+                    </label>
+                    <input type="file" id="back-image-upload" class="custom-file-input block w-full text-sm text-gray-500
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-full file:border-0
                     file:text-sm file:font-semibold
@@ -30,25 +42,28 @@
                 <div id="loading" class="hidden mt-4 text-gray-500">잠시 기다려주세요...</div>
             </div>
             <div id="result" class="bg-white shadow-md rounded-lg p-4 mt-5">
-                <div class="result-item mb-2 p-2">
-                    <span class="result-label font-bold">약품 확인:</span>
-                    <span id="pill-name" class="ml-2"></span>
-                </div>
-                <div class="result-item mb-2 p-2">
-                    <span class="result-label font-bold">효능 효과:</span>
-                    <span id="efficacy" class="ml-2"></span>
-                </div>
-                <div class="result-item mb-2 p-2">
-                    <span class="result-label font-bold">용법 용량:</span>
-                    <span id="dosage" class="ml-2"></span>
-                </div>
-                <div class="result-item mb-2 p-2">
-                    <span class="result-label font-bold">주의 사항:</span>
-                    <span id="precautions" class="ml-2"></span>
+                <div id="pill-images" class="grid grid-cols-2 gap-4"></div>
+                <div id="pill-info" class="mt-4 hidden">
+                    <div class="result-item mb-2 p-2">
+                        <span class="result-label font-bold">약품 확인:</span>
+                        <span id="pill-name" class="ml-2"></span>
+                    </div>
+                    <div class="result-item mb-2 p-2">
+                        <span class="result-label font-bold">효능 효과:</span>
+                        <span id="efficacy" class="ml-2"></span>
+                    </div>
+                    <div class="result-item mb-2 p-2">
+                        <span class="result-label font-bold">용법 용량:</span>
+                        <span id="dosage" class="ml-2"></span>
+                    </div>
+                    <div class="result-item mb-2 p-2">
+                        <span class="result-label font-bold">주의 사항:</span>
+                        <span id="precautions" class="ml-2"></span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-     <script src="../static/app.js"></script>
+    <script src="../static/app.js"></script>
 </body>
 </html>
