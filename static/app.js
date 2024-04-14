@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingDiv.classList.remove('hidden');
         resultDiv.innerHTML = '';
 
-        const url = 'http://172.30.1.48:8080/identify';
+        const url = 'https://172.30.1.48:8080/identify';
         const formData = new FormData();
         formData.append('front_image', frontFile);
         formData.append('back_image', backFile);
